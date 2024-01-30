@@ -1,17 +1,17 @@
 const express = require("express");
-const fs = require("fs")
+const fs = require("fs");
 
 const app = express();
 
-app.get("/", (req, res) => {
+app.get("/other", (req, res) => {
   const pwd = process.env.PWD;
-
-  res.sendFile(`${pwd}/pages/index.html`);
-  console.log(`${pwd}/pages/index.html`);
-  console.log(fs.existsSync(`${pwd}/pages/index.html`));
+  
+  res.sendFile(`${pwd}/public/pages/other.html`);
+  console.log(`${pwd}/public/pages/other.html`);
+  console.log(fs.existsSync(`${pwd}/public/pages/other.html`));
 });
 
-app.use(express.static('./styles'))
+app.use(express.static("public"));
 
 const port = process.env.PORT || 8000;
 
